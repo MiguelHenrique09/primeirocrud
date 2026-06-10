@@ -20,6 +20,12 @@
             <label for="matricula" class="form-label">Matrícula</label>
             <input type="text" class="form-control" id="matricula" name="matricula" required>
         </div>
+            <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" required>
+        </div>
+        
+        
         <button type="submit" class="btn btn-primary">Criar aluno</button>
     </form>
 @endsection

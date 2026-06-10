@@ -41,3 +41,9 @@ Route::get('/telefone/search',         [TelefoneController::class, 'search'])->n
 
 # ROTAS DE EMPRÉSTIMO =============================================================================
 Route::get('/emprestimo',           [EmprestimoController::class, 'index'])->name('emprestimo.index');
+Route::post('/emprestimo/{id}/devolver', [EmprestimoController::class, 'devolver'])->name('emprestimo.devolver');
+Route::get('/emprestimo/create',         [EmprestimoController::class, 'create'])->name('emprestimo.create');
+Route::post('/emprestimo',               [EmprestimoController::class, 'store'])->name('emprestimo.store');
+Route::get('/emprestimo/{id}/view',      [EmprestimoController::class, 'view'])->name('emprestimo.view');
+Route::get('/emprestimo/{id}/destroy',   [EmprestimoController::class, 'destroy'])->name('emprestimo.destroy');
+Route::get('/emprestimo/search',         [EmprestimoController::class, 'search'])->name('emprestimo.search');

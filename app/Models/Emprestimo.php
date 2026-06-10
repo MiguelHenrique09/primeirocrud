@@ -11,4 +11,11 @@ class Emprestimo extends Model
 
 	protected $table = 'emprestimo';
 
+public function aluno() {
+    return $this->belongsTo(Aluno::class);
+}
+
+public function livro() {
+    return $this->belongsTo(Livro::class);
+} 
 }

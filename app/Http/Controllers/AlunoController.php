@@ -23,6 +23,7 @@ class AlunoController extends Controller
             $aluno->nome = $request->input('nome');
             $aluno->endereco = $request->input('endereco');
             $aluno->matricula = $request->input('matricula');
+            $aluno->telefone = $request->input('telefone');
             $aluno->save();
 
             session()->flash('msg', 'Armazenado com sucesso!');
@@ -34,15 +35,17 @@ class AlunoController extends Controller
         }
         
     }
-public function view($id) {
-    try {
-        $aluno = Aluno::with('telefone')->findOrFail($id);
-        return view('aluno.visualizar', ['aluno' => $aluno]);
-    } catch (\Exception $e) {
-        session()->flash('erro', 'Erro ao carregar: ' . $e->getMessage());
-        return redirect()->route('aluno.index');
+
+    public function view($id) {
+        try {
+            $aluno = Aluno::find($id);
+            return view('aluno.visualizar', ['aluno' => $aluno]);
+
+        } catch (\Exception $e) {
+            session()->flash('erro', 'Erro ao carregar: ' . $e->getMessage());
+            return redirect()->route('aluno.index');
+        }
     }
-}
 
     public function update(Request $request, $id) {
         try {
@@ -50,6 +53,7 @@ public function view($id) {
             $aluno->nome = $request->input('nome');
             $aluno->endereco = $request->input('endereco');
             $aluno->matricula = $request->input('matricula');
+            $aluno->telefone = $request->input('telefone');
             $aluno->save();
 
             session()->flash('msg', 'Atualizado com sucesso!');
